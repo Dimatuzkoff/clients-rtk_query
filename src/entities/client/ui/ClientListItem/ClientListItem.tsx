@@ -1,6 +1,7 @@
 // react
 import type { FC, ChangeEvent } from 'react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 // types
 import type { IClient } from '@/entities/client/model/types/client'
 // styles
@@ -41,7 +42,7 @@ export const ClientListItem: FC<ClientListItemProps> = ({
     
     return(
         <>
-            <div className={styles.clientItem}>
+            <Link to={`/client/${_id}`} className={styles.clientItem}>
                 <input type="text" value={currentName} onChange={onChangeName} />
                 <input type="text" value={currentPhone} onChange={onChangePhone} />
                 <input type="text" value={currentEmail} onChange={onChangeEmail} />
@@ -49,7 +50,7 @@ export const ClientListItem: FC<ClientListItemProps> = ({
                     <button onClick={onUpdateClient} type="button">Edit</button>
                     <button onClick={onDeleteClient} type="button">🗑️</button>
                 </div>
-            </div>
+            </Link>
         </>
     )
 }

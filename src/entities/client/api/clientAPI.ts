@@ -25,8 +25,8 @@ const clientAPI = api.injectEndpoints({
             providesTags: [{type: 'CLIENT', id: 'LIST'}],
         }),
         getClient: builder.query< GetClientResponse, GetClientRequest >({
-            query: () => ({
-                url: "/client/${id}",
+            query: (id) => ({
+                url: `/client/${id}`,
                 method: "GET",
             }),
             providesTags: (result, error, arg) => [{type: 'CLIENT', id: arg}],

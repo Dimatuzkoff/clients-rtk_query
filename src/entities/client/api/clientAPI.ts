@@ -44,7 +44,10 @@ const clientAPI = api.injectEndpoints({
                 url: `/client/${id}`,
                 method: "DELETE"
             }),
-            invalidatesTags: [{type: 'CLIENT', id: 'LIST'}],
+            invalidatesTags: (result, error, id) => [
+                { type: 'CLIENT', id: 'LIST' },
+                { type: 'CLIENT', id },
+            ],
         }),
         updateClient: builder.mutation< PutClientsResponse, PutClientsRequest >({
             query: ( updatedClient ) => ({

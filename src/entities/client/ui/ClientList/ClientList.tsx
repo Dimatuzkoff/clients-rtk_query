@@ -6,6 +6,8 @@ import { useGetClientsQuery } from '@/entities/client/api/clientAPI'
 import { ClientListItem } from '../ClientListItem/ClientListItem'
 // styles
 import styles from "./ClientList.module.scss";
+// assets
+import Loader from '@/shared/libs/assets/svg/preview.gif'
 
 interface ClientListProps {}
 
@@ -17,9 +19,8 @@ export const ClientList: FC<ClientListProps> = ({}) => {
         return <div>Something went wrong!</div>;
     }
     if (isLoading) {
-        return <div>Loading...</div>;
+        return <div className={styles.loader}><img src={Loader} alt='loader' /></div>;
     }
-  
     return (
         <div className={styles.clientsList}>
             { 

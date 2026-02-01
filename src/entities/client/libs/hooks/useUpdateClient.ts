@@ -6,16 +6,15 @@ import type { IClient } from '@/entities/client/model/types/client'
 export const useUpdateClient = () => {
     const [updateClient, result] = useUpdateClientMutation();
 
-    const onUpdateClient = (
-        client: IClient,
-    ) => {
-        const { name, phone, email} = client
-        if (!name || !phone || !email) return
-        updateClient(client).unwrap().then(() => {
-            if (result.isSuccess) console.log('client updated!!');
-            if (result.isError) console.log('updated error'); 
-        })
-    }
+    const onUpdateClient = async (client: IClient) => {
+        const { name, phone, email } = client;
+        if (!name || !phone || !email) return;
+        try {
+            await updateClient(client).unwrap();
+        } catch (error) {
+            console.error('updated error', error);
+        }
+    };
     return {
         onUpdateClient,
         ...result,

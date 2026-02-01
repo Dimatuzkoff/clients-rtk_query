@@ -6,6 +6,7 @@ import { useDeleteClientMutation } from '@/entities/client/api/clientAPI';
 export const useDeleteClient = () => {
     const [deleteClient, result] = useDeleteClientMutation()
     const navigate = useNavigate();
+    
     const onDeleteClient = async (id: string) => {
         try {
             await deleteClient(id).unwrap();

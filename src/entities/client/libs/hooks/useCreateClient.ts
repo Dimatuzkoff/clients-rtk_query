@@ -6,17 +6,18 @@ import type { IClient } from '@/entities/client/model/types/client'
 export const useCreateClient = () => {
     const [createClient, result] = useCreateClientMutation();
 
-    const createNewClient = (
+    const createNewClient = async (
         client: IClient,
         onSuccess: () => void,
     ) => {
         const { name, phone, email} = client
         if (!name || !phone || !email) return
-        createClient(client).unwrap().then(() => {
-            if (result.isSuccess) console.log('client created!!');
-            if (result.isError) console.log('created error'); 
-        })
-        onSuccess();
+        try {
+            await createClient(client).unwrap()
+            onSuccess();            
+        } catch (error) {
+            console.error('created error', error);
+        }
     }
     return {
         createNewClient,

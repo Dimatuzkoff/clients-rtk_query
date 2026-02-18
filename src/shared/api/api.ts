@@ -6,6 +6,6 @@ export const api = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: 'https://shop-back-mh7t.onrender.com/api'
     }),
-    tagTypes: ['CLIENT'],
+    tagTypes: ['CLIENT', 'AUTH'],
     endpoints: (_builder) => ({})
 })

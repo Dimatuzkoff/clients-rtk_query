@@ -1,11 +1,13 @@
 // react
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 // hooks
 import { useCreateUser } from '@/features/auth/libs/hooks/useCreateUser'
 // styles
 import styles from './SignUp.module.scss'
 
 export const SignUp = () => {
+    const navigate = useNavigate();
     const { createNewUser } = useCreateUser()
     const [phone, setPhone] = useState("")
     const [password, setPassword] = useState("")
@@ -16,6 +18,7 @@ export const SignUp = () => {
     const clearField = () => {
         setPhone("")
         setPassword("")
+        navigate('/signin');
     }
 
     const onSignUp = () => createNewUser({ phone, password }, clearField)

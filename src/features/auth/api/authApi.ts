@@ -3,7 +3,9 @@ import { api } from '@/shared/api/api'
 // types
 import type {
     PostRegisterRequest,
-    PostRegisterResponse
+    PostRegisterResponse,
+    PostLoginRequest,
+    PostLoginResponse
 } from '@/features/auth/model/types/authApiTypes'
 
 const authAPI = api.injectEndpoints({
@@ -13,10 +15,16 @@ const authAPI = api.injectEndpoints({
                 url: "/register",
                 method: "POST",
                 body: newUser
-            }),
+            })
         }),
-        
+        loginUser: builder.mutation< PostLoginResponse, PostLoginRequest >({
+            query: (user) => ({
+                url: "/login",
+                method: "POST",
+                body: user
+            })
+        }),
     })
 })
 
-export const { useCreateUserMutation } = authAPI
+export const { useCreateUserMutation, useLoginUserMutation } = authAPI

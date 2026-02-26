@@ -1,7 +1,7 @@
 import type { IUser } from '@/entities/user/model/types/user'
 
-export type GetProfileRequest = void;
-export type GetProfileResponse = {
+export type GetUserInfoRequest = void;
+export type GetUserInfoResponse = {
     user: IUser;
     ok: boolean;
 }

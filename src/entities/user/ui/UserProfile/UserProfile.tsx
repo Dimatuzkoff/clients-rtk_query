@@ -17,7 +17,7 @@ export const UserProfile = () => {
     return (
         <>
             <main className={styles.userProfile}>
-                <h1>USER Profile</h1>
+                <h1> {data?.user.phone} </h1>
             </main>
         </>
         

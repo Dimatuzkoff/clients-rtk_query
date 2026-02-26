@@ -27,7 +27,7 @@ export const SignUp = () => {
             <div className={ styles.signUp }>
                 <h2> SignUp</h2>
                 <input value={ phone } onChange={ e => onPhoneChange(e.target.value) } placeholder='Phone' className={ styles.authInput }  type="text" />
-                <input value={ password } onChange={ e => onPasswordChange(e.target.value) } placeholder='Email' className={ styles.authInput }  type="text" />
+                <input value={ password } onChange={ e => onPasswordChange(e.target.value) } placeholder='password' className={ styles.authInput }  type="text" />
                 <button className={ styles.authBtn } onClick={ onSignUp }  type='button'>Send</button>
             </div>
         </div> 

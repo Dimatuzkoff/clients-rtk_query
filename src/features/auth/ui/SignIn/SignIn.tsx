@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // hooks
 import { useLoginUser } from '@/features/auth/libs/hooks/useLoginUser'
+// libs
+import { getProfileRoute } from '@/shared/libs/constants/routes/routes' 
 // styles
 import styles from './SignIn.module.scss';
 
@@ -18,7 +20,7 @@ export const SignIn = () => {
     const clearField = () => {
         setPhone("")
         setPassword("")
-        navigate('/profile');
+        navigate(getProfileRoute());
     }
 
     const onSignIn = () => loginNewUser({ phone, password }, clearField)

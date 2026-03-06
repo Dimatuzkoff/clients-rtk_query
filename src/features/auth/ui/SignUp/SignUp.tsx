@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // hooks
 import { useCreateUser } from '@/features/auth/libs/hooks/useCreateUser'
+// libs
+import { getSignInRoute } from '@/shared/libs/constants/routes/routes'
 // styles
 import styles from './SignUp.module.scss'
 
@@ -18,7 +20,7 @@ export const SignUp = () => {
     const clearField = () => {
         setPhone("")
         setPassword("")
-        navigate('/signin');
+        navigate(getSignInRoute());
     }
 
     const onSignUp = () => createNewUser({ phone, password }, clearField)

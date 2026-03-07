@@ -7,6 +7,8 @@ import { ClientPage } from '@/pages/clientPage'
 import { SignUpPage } from '@/pages/auth/signUp'
 import { ProfilePage } from '@/pages/profile'
 import { SignInPage } from '@/pages/auth/signIn'
+//guards
+import { AuthOnlyGuard } from '@/app/config/route/guards/AuthOnlyGuard';
 //libs
 import { getHomeRoute, getSignUpRoute, getSignInRoute, getProfileRoute, getClientPageRoute } from '@/shared/libs/constants/routes/routes';
 
@@ -19,7 +21,9 @@ export const AppRouter: FC<AppRouterProps> = ({}) => {
             <Route path={getHomeRoute()} element={<HomePage />} />
             <Route path={getSignUpRoute()} element={<SignUpPage />} />
             <Route path={getSignInRoute()} element={<SignInPage />} />
-            <Route path={getProfileRoute()} element={<ProfilePage />} />
+            <Route element={<AuthOnlyGuard />}>
+                <Route path={getProfileRoute()} element={<ProfilePage />} />
+            </Route>
             <Route path={getClientPageRoute()} element={<ClientPage />} />
         </Routes>
     );

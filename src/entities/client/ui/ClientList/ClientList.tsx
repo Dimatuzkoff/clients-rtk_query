@@ -1,7 +1,10 @@
 // react
 import { type FC } from "react";
+import { useSelector } from 'react-redux';
 // hooks
 import { useGetClientsQuery } from '@/entities/client/api/clientAPI'
+// types
+import type { StateSchema } from '@/app/config/store/stateSchema';
 // ui
 import { ClientListItem } from '../ClientListItem/ClientListItem'
 // styles
@@ -13,7 +16,9 @@ interface ClientListProps {}
 
 export const ClientList: FC<ClientListProps> = ({}) => {
 
-    const { data, isError, isLoading } = useGetClientsQuery();
+    const { isError, isLoading } = useGetClientsQuery();
+    const clients = useSelector((state: StateSchema) => state.clients.clients);
+console.log('clients', clients);
 
     if (isError) {
         return <div>Something went wrong!</div>;
@@ -24,7 +29,7 @@ export const ClientList: FC<ClientListProps> = ({}) => {
     return (
         <div className={styles.clientsList}>
             { 
-                data?.map((elem) => (
+                clients?.map((elem) => (
                     <ClientListItem key={elem._id} client={elem} />
                 )) 
             }

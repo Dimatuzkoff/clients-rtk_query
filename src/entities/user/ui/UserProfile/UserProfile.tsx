@@ -24,6 +24,5 @@ export const UserProfile = () => {
                 <h1> {user?.phone} </h1>
             </main>
         </>
-
     );
 };

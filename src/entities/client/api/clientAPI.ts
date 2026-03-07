@@ -1,5 +1,7 @@
 // api
 import { api } from '@/shared/api/api'
+// store
+import { setClients } from '@/entities/client/model/slice/clientsSlice'
 // types
 import type { 
     GetClientsResponse,
@@ -22,6 +24,10 @@ const clientAPI = api.injectEndpoints({
                 url: "/clients",
                 method: "GET",
             }),
+            async onQueryStarted(_, { dispatch, queryFulfilled }) {
+                const { data } = await queryFulfilled;
+                dispatch(setClients(data));
+            },
             providesTags: [{type: 'CLIENT', id: 'LIST'}],
         }),
         getClient: builder.query< GetClientResponse, GetClientRequest >({

@@ -17,10 +17,9 @@ const baseQuery = fetchBaseQuery({
 
 const baseQueryWithTokenRotation: BaseQueryFn<string | FetchArgs, unknown, FetchBaseQueryError> = async (args, api, extraOptions) => {
     const result = await baseQuery(args, api, extraOptions);
-console.log('result', result);
 
     const newToken = result.meta?.response?.headers.get('authorization');
-    if (newToken) {
+    if (newToken && newToken !== 'null') {                
         localStorage.setItem(TOKEN_KEY, newToken);
     }
 

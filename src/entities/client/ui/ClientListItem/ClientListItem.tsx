@@ -2,7 +2,7 @@
 import type { FC } from 'react';
 import { Link } from 'react-router-dom';
 // types
-import type { IClient } from '@/entities/client/model/types/client'
+import type { IClient } from '@/entities/client'
 // styles
 import styles from './ClientListItem.module.scss';  
 

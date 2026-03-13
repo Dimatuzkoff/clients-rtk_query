@@ -1,4 +1,4 @@
-import type { IUser } from '@/entities/user/model/types/user'
+import type { IUser } from './user'
 
 export type GetUserInfoRequest = void;
 export type GetUserInfoResponse = {

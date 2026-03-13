@@ -2,10 +2,9 @@
 import type { FC, ChangeEvent } from 'react';
 import { useState } from 'react';
 // hooks
-import { useUpdateClient } from '@/entities/client/libs/hooks/useUpdateClient'
-import { useDeleteClient } from '@/entities/client/libs/hooks/useDeleteClient'
+import { useUpdateClient, useDeleteClient } from '@/entities/client'
 // types
-import type { IClient } from '@/entities/client/model/types/client'
+import type { IClient } from '@/entities/client'
 // styles
 import styles from './ClientListItemDetail.module.scss';  
 

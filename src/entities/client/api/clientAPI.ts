@@ -1,7 +1,7 @@
 // api
 import { api } from '@/shared/api/api'
 // store
-import { setClients } from '@/entities/client/model/slice/clientsSlice'
+import { setClients } from '../model/slice/clientsSlice'
 // types
 import type { 
     GetClientsResponse,
@@ -14,7 +14,7 @@ import type {
     DeleteClientsRequest,
     PutClientsResponse,
     PutClientsRequest
-} from '@/entities/client/model/types/clientsAPItypes'
+} from '../model/types/clientsAPItypes'
 
 const clientAPI = api.injectEndpoints({
     endpoints: (builder) => ({

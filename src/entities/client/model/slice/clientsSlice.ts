@@ -1,7 +1,7 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
-import type { IClient } from '@/entities/client/model/types/client';
-import type { ClientStateSchema } from '@/entities/client/model/types/clientState';
+import type { IClient } from '../../index';
+import type { ClientStateSchema } from '../../model/types/clientState';
 
 const initialState: ClientStateSchema = {
     clients: [],

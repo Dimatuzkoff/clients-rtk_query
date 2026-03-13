@@ -1,0 +1,5 @@
+export { useCreateClient } from './libs/hooks/useCreateClient'
+export { useDeleteClient } from './libs/hooks/useDeleteClient'
+export { useUpdateClient } from './libs/hooks/useUpdateClient'
+export { useGetClientsQuery, useGetClientQuery } from './api/clientAPI'
+export type { IClient } from './model/types/client'

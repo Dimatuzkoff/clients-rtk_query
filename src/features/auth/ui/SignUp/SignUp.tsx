@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // hooks
-import { useCreateUser } from '@/features/auth/libs/hooks/useCreateUser'
+import { useCreateUser } from '@/features/auth'
 // libs
 import { getSignInRoute } from '@/shared/libs/constants/routes/routes'
 // styles

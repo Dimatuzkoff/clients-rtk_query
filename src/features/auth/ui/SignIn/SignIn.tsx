@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // hooks
-import { useLoginUser } from '@/features/auth/libs/hooks/useLoginUser'
+import { useLoginUser } from '@/features/auth'
 // libs
 import { getProfileRoute } from '@/shared/libs/constants/routes/routes' 
 // styles

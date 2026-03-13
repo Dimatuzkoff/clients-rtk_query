@@ -20,4 +20,4 @@ const userInfoApi = api.injectEndpoints({
     })
 })
 
-export const { useGetUserInfoQuery, } = userInfoApi
+export const { useGetUserInfoQuery } = userInfoApi

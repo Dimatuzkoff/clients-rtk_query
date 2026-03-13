@@ -2,7 +2,7 @@
 import { type FC } from "react";
 import { useSelector } from 'react-redux';
 // hooks
-import { useGetClientsQuery } from '@/entities/client/api/clientAPI'
+import { useGetClientsQuery } from '@/entities/client'
 // types
 import type { StateSchema } from '@/app/config/store/stateSchema';
 // ui

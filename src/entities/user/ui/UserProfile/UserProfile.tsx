@@ -1,5 +1,5 @@
 // hooks
-import { useGetUserInfoQuery } from "@/entities/user/api/userApi"
+import { useGetUserInfoQuery } from "@/entities/user"
 import { useSelector } from 'react-redux';
 // types
 import type { StateSchema } from '@/app/config/store/stateSchema';

@@ -1,7 +1,7 @@
 // react
 import { useState } from 'react';
 //hooks
-import { useCreateClient } from '@/entities/client/libs/hooks/useCreateClient';
+import { useCreateClient } from '@/entities/client';
 // styles
 import styles from './ClientAdd.module.scss';
 

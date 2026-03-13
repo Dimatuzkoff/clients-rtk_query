@@ -18,13 +18,13 @@ interface AppRouterProps {
 export const AppRouter: FC<AppRouterProps> = ({}) => {
     return (
         <Routes>
-            <Route path={getHomeRoute()} element={<HomePage />} />
             <Route path={getSignUpRoute()} element={<SignUpPage />} />
             <Route path={getSignInRoute()} element={<SignInPage />} />
             <Route element={<AuthOnlyGuard />}>
+                <Route path={getHomeRoute()} element={<HomePage />} />
                 <Route path={getProfileRoute()} element={<ProfilePage />} />
+                <Route path={getClientPageRoute()} element={<ClientPage />} />
             </Route>
-            <Route path={getClientPageRoute()} element={<ClientPage />} />
         </Routes>
     );
 };

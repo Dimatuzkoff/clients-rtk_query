@@ -8,6 +8,7 @@ export const AuthOnlyGuard: FC = () => {
     const user = useSelector((state: StateSchema) => state.user.user);
 
     if (!user) {
+        localStorage.removeItem('token');
         return <Navigate to={getSignInRoute()} replace />;
     }
 

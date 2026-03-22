@@ -1,10 +1,10 @@
 // react
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 // hooks
 import { useLoginUser } from '@/features/auth'
 // libs
-import { getHomeRoute } from '@/shared/libs/constants/routes/routes' 
+import { getHomeRoute, getSignUpRoute } from '@/shared/libs/constants/routes/routes'
 // styles
 import styles from './SignIn.module.scss';
 
@@ -31,6 +31,7 @@ export const SignIn = () => {
                 <input value={ phone } onChange={ e => onPhoneChange(e.target.value) } placeholder='Phone' className={ styles.authInput }  type="text" />
                 <input value={ password } onChange={ e => onPasswordChange(e.target.value) } placeholder='password' className={ styles.authInput }  type="text" />
                 <button className={ styles.authBtn } onClick={ onSignIn }  type='button'>Send</button>
+                <Link to={ getSignUpRoute() }>Нет аккаунта? Зарегистрироваться</Link>
             </div>
         </div> 
     );

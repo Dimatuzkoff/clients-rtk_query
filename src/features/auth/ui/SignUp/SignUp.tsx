@@ -1,6 +1,6 @@
 // react
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 // hooks
 import { useRegister } from '@/features/auth'
 // libs
@@ -31,6 +31,7 @@ export const SignUp = () => {
                 <input value={ phone } onChange={ e => onPhoneChange(e.target.value) } placeholder='Phone' className={ styles.authInput }  type="text" />
                 <input value={ password } onChange={ e => onPasswordChange(e.target.value) } placeholder='password' className={ styles.authInput }  type="text" />
                 <button className={ styles.authBtn } onClick={ onSignUp }  type='button'>Send</button>
+                <Link to={ getSignInRoute() }>Уже есть аккаунт? Войти</Link>
             </div>
         </div> 
     );

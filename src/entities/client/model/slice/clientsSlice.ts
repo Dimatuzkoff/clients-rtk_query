@@ -20,5 +20,4 @@ export const clientsSlice = createSlice({
     },
 });
 
-export const { setClients, clearClients } = clientsSlice.actions;
-export default clientsSlice.reducer;
+export const {reducer: clientsReducer, actions: clientsActions } = clientsSlice

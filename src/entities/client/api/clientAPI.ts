@@ -1,7 +1,7 @@
 // api
 import { api } from '@/shared/api/api'
 // store
-import { setClients } from '../model/slice/clientsSlice'
+import { clientsActions } from '../model/slice/clientsSlice'
 // types
 import type { 
     GetClientsResponse,
@@ -26,7 +26,7 @@ const clientAPI = api.injectEndpoints({
             }),
             async onQueryStarted(_, { dispatch, queryFulfilled }) {
                 const { data } = await queryFulfilled;
-                dispatch(setClients(data));
+                dispatch(clientsActions.setClients(data));
             },
             providesTags: [{type: 'CLIENT', id: 'LIST'}],
         }),

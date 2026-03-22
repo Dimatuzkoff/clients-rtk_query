@@ -1,7 +1,7 @@
 // api
 import { api } from '@/shared/api/api'
 // store
-import { setUser } from '@/entities/user/model/slice/userSlice';
+import { userActions } from '@/entities/user/model/slice/userSlice';
 // types
 import type {
     PostRegisterRequest,
@@ -27,7 +27,7 @@ const authAPI = api.injectEndpoints({
             }),
             async onQueryStarted(_, { dispatch, queryFulfilled }) {
                 const { data } = await queryFulfilled;
-                dispatch(setUser(data.user));
+                dispatch(userActions.setUser(data.user));
             },
         }),
     })

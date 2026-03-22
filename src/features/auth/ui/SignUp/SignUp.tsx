@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // hooks
-import { useCreateUser } from '@/features/auth'
+import { useRegister } from '@/features/auth'
 // libs
 import { getSignInRoute } from '@/shared/libs/constants/routes/routes'
 // styles
@@ -10,7 +10,7 @@ import styles from './SignUp.module.scss'
 
 export const SignUp = () => {
     const navigate = useNavigate();
-    const { createNewUser } = useCreateUser()
+    const { createNewUser } = useRegister()
     const [phone, setPhone] = useState("")
     const [password, setPassword] = useState("")
 

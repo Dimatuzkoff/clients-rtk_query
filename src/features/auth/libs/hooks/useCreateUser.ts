@@ -1,10 +1,10 @@
 // hooks
-import { useCreateUserMutation } from '@/features/auth/api/authApi';
+import { useRegisterMutation } from '@/features/auth/api/authApi';
 // types
 import type { IAuth } from '@/features/auth/model/types/auth'
 
-export const useCreateUser = () => {
-    const [createUser, result] = useCreateUserMutation();
+export const useRegister = () => {
+    const [register, result] = useRegisterMutation();
 
     const createNewUser = async (
         newUser: IAuth,
@@ -13,7 +13,7 @@ export const useCreateUser = () => {
         const { phone, password } = newUser
         if (!phone || !password) return
         try {
-            await createUser(newUser).unwrap()
+            await register(newUser).unwrap()
             onSuccess();            
         } catch (error) {
             console.error('created error', error);

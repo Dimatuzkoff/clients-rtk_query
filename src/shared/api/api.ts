@@ -2,12 +2,12 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import type { BaseQueryFn, FetchArgs, FetchBaseQueryError } from "@reduxjs/toolkit/query";
 
-const TOKEN_KEY = 'token';
+const ACCESS_TOKEN_KEY = 'accessToken';
 
 const baseQuery = fetchBaseQuery({
     baseUrl: 'https://shop-back-mh7t.onrender.com/api',
     prepareHeaders: (headers) => {
-        const token = localStorage.getItem(TOKEN_KEY);
+        const token = localStorage.getItem(ACCESS_TOKEN_KEY);
         if (token) {
             headers.set('authorization', `Bearer ${token}`);
         }
@@ -20,7 +20,7 @@ const baseQueryWithTokenRotation: BaseQueryFn<string | FetchArgs, unknown, Fetch
 
     const newToken = result.meta?.response?.headers.get('authorization');
     if (newToken && newToken !== 'null') {                
-        localStorage.setItem(TOKEN_KEY, newToken);
+        localStorage.setItem(ACCESS_TOKEN_KEY, newToken);
     }
 
     return result;
